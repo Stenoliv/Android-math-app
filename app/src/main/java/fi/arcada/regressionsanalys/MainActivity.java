@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     // Deklarera yValue för längd, Denna variabel ska sedan få ett värde som hämtas från en EditText-box i appens GUI
     EditText input;
     TextView output;
+    TextView ccoutput;
 
     RegressionLine line = new RegressionLine(xData,yData);
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         // Här kommer som vanligt alla findViewById som behövs
         input = findViewById(R.id.editTextNumber);
         output = findViewById(R.id.ResultOut);
+        ccoutput = findViewById(R.id.correlationOutput);
     }
 
     // Gör så att den här metoden anropas vid ett knapptryck
@@ -40,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
             double Y = Double.parseDouble(input.getText().toString());
             double X = line.getX(Y);
             output.setText(String.format("%.2f",X));
+            ccoutput.setText(String.format("Korrelationen är (%.2f) | %s |", line.getCorrelationCoefficient(), line.getCorrelationGrade()));
         }catch (NumberFormatException e){
             output.setText("Ändast siffror tillåtna!");
+            ccoutput.setText("");
         }
-
-    System.out.println(line.getCorrelationCoefficient());
         // RegressionLine beräknar regressionslinjen på basen av våra datamängder
         // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
         // Instansiera regressionLine t.ex. så här:

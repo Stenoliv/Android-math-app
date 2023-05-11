@@ -56,6 +56,11 @@ public class RegressionLine {
 
     public String getCorrelationGrade() {
         String output = "";
+        if (cc < 0.2) output = "ingen";
+        else if (cc > 0.2 && cc < 0.4) output = "låg";
+        else if (cc > 0.4 && cc < 0.6) output = "måttlig";
+        else if (cc > 0.6 && cc < 0.8) output = "hög";
+        else output = "perfekt";
         return output;
     }
 
