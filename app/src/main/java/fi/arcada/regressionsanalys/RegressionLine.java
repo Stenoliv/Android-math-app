@@ -7,7 +7,7 @@ public class RegressionLine {
     public RegressionLine(double[] xVals, double[] yVals) {
         k = (xVals.length*sumXY(xVals, yVals) - sum(xVals)*sum(yVals))/((xVals.length*sumPow(xVals,2))-Math.pow(sum(xVals),2));
         m = avg(yVals)-(k*avg(xVals));
-        System.out.println("k = "+k+" m = "+m);
+        cc = (xVals.length * sumXY(xVals,yVals)-sum(xVals)*sum(yVals))/Math.sqrt((sumPow(xVals,2)*xVals.length-Math.pow(sum(xVals),2))*(xVals.length*sumPow(yVals,2)-Math.pow(sum(yVals),2)));
     }
 
     private double avg(double[] values) {
@@ -50,6 +50,7 @@ public class RegressionLine {
     }
 
     public double getCorrelationCoefficient() {
+
         return this.cc;
     }
 

@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Regressionsanalys</string>
     <string name="instructions">Skriv in din längd så gissar jag din skostorlek</string>
-    <string name="numfieldhint">Skriv din skostorlek</string>
+    <string name="numfieldhint">Skriv din längd</string>
     <string name="calculatebtn">Räkna ut</string>
+    <string name="resultstr">Din skostorlek vill komma fram här</string>
+    <string name="correlationstr">Korrelationsgraden kommer fram här</string>
 
 
 </resources>

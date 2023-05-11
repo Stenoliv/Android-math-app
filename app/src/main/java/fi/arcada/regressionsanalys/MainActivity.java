@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
     double[] yData = { 194, 188, 181, 177, 182, 197, 179, 176, 177, 188, 164, 171, 170, 180, 171, 185, 179, 182, 180, 178, 178, 148, 197, 183, 179, 198};
 
     // Deklarera yValue för längd, Denna variabel ska sedan få ett värde som hämtas från en EditText-box i appens GUI
-    double yValue;
+    EditText input;
+    TextView output;
 
     RegressionLine line = new RegressionLine(xData,yData);
 
@@ -26,12 +29,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Här kommer som vanligt alla findViewById som behövs
-        System.out.println(line.getX(yData[2]));
+        input = findViewById(R.id.editTextNumber);
+        output = findViewById(R.id.ResultOut);
     }
 
     // Gör så att den här metoden anropas vid ett knapptryck
     public void getEstimate(View view) {
 
+        try {
+            double Y = Double.parseDouble(input.getText().toString());
+            double X = line.getX(Y);
+            output.setText(String.format("%.2f",X));
+        }catch (NumberFormatException e){
+            output.setText("Ändast siffror tillåtna!");
+        }
+
+    System.out.println(line.getCorrelationCoefficient());
         // RegressionLine beräknar regressionslinjen på basen av våra datamängder
         // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
         // Instansiera regressionLine t.ex. så här:
