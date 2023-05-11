@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     // Deklarera yValue för längd, Denna variabel ska sedan få ett värde som hämtas från en EditText-box i appens GUI
     double yValue;
 
+    RegressionLine line = new RegressionLine(xData,yData);
+
     // Deklarera övriga variabler och objekt du behöver, t.ex. TextViews osv.
 
     @Override
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Här kommer som vanligt alla findViewById som behövs
+        System.out.println(line.getX(yData[2]));
     }
 
     // Gör så att den här metoden anropas vid ett knapptryck
