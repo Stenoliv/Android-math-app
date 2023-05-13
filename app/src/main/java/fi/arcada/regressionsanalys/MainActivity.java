@@ -47,19 +47,6 @@ public class MainActivity extends AppCompatActivity {
             output.setText("Ändast siffror tillåtna!");
             ccoutput.setText("");
         }
-        // RegressionLine beräknar regressionslinjen på basen av våra datamängder
-        // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
-        // Instansiera regressionLine t.ex. så här:
-        //RegressionLine regLine = new RegressionLine(xData, yData);
-
-        // Ta emot användarens input (längd) och spara i yValue
-        // Använd ett try/catch-block för NumberFormatException så att appen inte crashar
-        // om man skriver någonting annat än siffror
-
-        // Anropa regLine.getX()-metoden via objektet regLine, och använd yValue som parameter
-        // Skicka svaret till en TextView i layouten!
-
-
     }
 
 }
